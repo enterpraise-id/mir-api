@@ -50,11 +50,27 @@ export default class TeamsController {
     public async show({ response }: HttpContextContract){
         const team = await Team.all()
         
-        return response.ok({
-            status: 201,
-            message: 'Team retrieved successfully',
-            data: team
-        })
+        if (!team){
+            return response.notFound({
+                status: 400,
+                message: 'Team not found'
+            })
+        }
+
+        try {
+            return response.ok({
+                status: 200,
+                message: 'Team retrieved successfully',
+                data: team
+            })
+        }
+        catch (err){
+            return response.badGateway({
+                status: 500,
+                message: 'Team not retrieved',
+                err
+            })
+        }
     }
 
     public async delete({ params, response, auth }: HttpContextContract){

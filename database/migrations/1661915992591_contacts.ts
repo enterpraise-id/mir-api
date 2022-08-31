@@ -8,7 +8,6 @@ export default class extends BaseSchema {
       table.increments('id')
       table.string('platform')
       table.string('content')
-      table.string('description')
 
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL

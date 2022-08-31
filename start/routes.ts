@@ -50,5 +50,12 @@ Route.group(() => {
     Route.post('/', 'PortfoliosController.store').middleware('ImageUpload:thumbnail')
     Route.put('/:id', 'PortfoliosController.update')
     Route.delete('/', 'PortfoliosController.delete')
-  })
+  }).prefix('/portfolios')
+
+  Route.group(() => {
+    Route.get('/', 'ContactsController.show')
+    Route.post('/', 'ContactsController.store')
+    Route.put('/:id', 'ContactsController.update')
+    Route.delete('/:id', 'ContactsController.delete')
+  }).prefix('/contacts')
 }).prefix('/api')
