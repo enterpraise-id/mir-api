@@ -36,7 +36,7 @@ Route.group(() => {
     Route.put('/:id', 'ArticlesController.update').middleware('ImageUpload:thumbnail')
     Route.post('/', 'ArticlesController.store').middleware('ImageUpload:thumbnail')
     Route.delete('/:id', 'ArticlesController.delete')
-  }).prefix('articles')
+  }).prefix('/articles')
 
   Route.group(() => {
     Route.get('/', 'TeamsController.show')
@@ -48,8 +48,8 @@ Route.group(() => {
   Route.group(() => {
     Route.get('/', 'PortfoliosController.paginate')
     Route.post('/', 'PortfoliosController.store').middleware('ImageUpload:thumbnail')
-    Route.put('/:id', 'PortfoliosController.update')
-    Route.delete('/', 'PortfoliosController.delete')
+    Route.put('/:id', 'PortfoliosController.update').middleware('ImageUpload:thumbnail')
+    Route.delete('/:id', 'PortfoliosController.delete')
   }).prefix('/portfolios')
 
   Route.group(() => {
