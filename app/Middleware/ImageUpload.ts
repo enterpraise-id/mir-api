@@ -2,7 +2,7 @@ import type { HttpContextContract } from "@ioc:Adonis/Core/HttpContext";
 import ImageHelper from "App/Helpers/ImageHelper";
 import UploadHelper from "App/Helpers/UploadHelper";
 
-export default class ImageUpload {
+export default class UploadImage {
   public async handle(
     { request, response }: HttpContextContract,
     next: () => Promise<void>,
