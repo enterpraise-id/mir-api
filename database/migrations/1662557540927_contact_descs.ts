@@ -1,13 +1,12 @@
 import BaseSchema from '@ioc:Adonis/Lucid/Schema'
 
 export default class extends BaseSchema {
-  protected tableName = 'portfolio_tag'
+  protected tableName = 'contact_descs'
 
   public async up () {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id')
-      table.integer('portfolio_id').unsigned().references('id').inTable('portfolios').onDelete('CASCADE')
-      table.integer('tag_id').unsigned().references('id').inTable('portfolios').onDelete('CASCADE')
+      table.string('description')
 
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL

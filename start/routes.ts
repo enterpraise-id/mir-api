@@ -58,4 +58,11 @@ Route.group(() => {
     Route.put('/:id', 'ContactsController.update')
     Route.delete('/:id', 'ContactsController.delete')
   }).prefix('/contacts')
+
+  Route.group(() => {
+    Route.get('/', 'ContactDescsController.show')
+    Route.post('/', 'ContactDescsController.store')
+    Route.put('/:id', 'ContactDescsController.update')
+    Route.delete('/:id', 'ContactDescsController.delete')
+  }).prefix('/contact-desc')
 }).prefix('/api')
